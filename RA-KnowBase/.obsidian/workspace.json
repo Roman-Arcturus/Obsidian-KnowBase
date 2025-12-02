@@ -65,12 +65,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Dev/Windows config.md",
+                "file": "Dev/Linux Mint config.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Windows config"
+              "title": "Linux Mint config"
             }
           }
         ],
@@ -131,7 +131,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "0f77965a3938e5ba",
@@ -147,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Dev/Windows config.md",
+                "file": "Dev/Linux Mint config.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +158,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Windows config"
+              "title": "Backlinks for Linux Mint config"
             }
           },
           {
@@ -166,12 +167,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Dev/Windows config.md",
+                "file": "Dev/Linux Mint config.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Windows config"
+              "title": "Outgoing links from Linux Mint config"
             }
           },
           {
@@ -209,13 +210,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Dev/Windows config.md",
+                "file": "Dev/Linux Mint config.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Windows config"
+              "title": "Outline of Linux Mint config"
             }
           }
         ]
@@ -238,8 +239,9 @@
   },
   "active": "906a6f91d6e1f484",
   "lastOpenFiles": [
-    "Welcome.md",
+    "Dev/Obsidian Workflow.md",
     "Dev/Windows config.md",
+    "Welcome.md",
     "Dev/Linux Mint config.md",
     "Dev/Python.md",
     "Dev/Toolchain.md",

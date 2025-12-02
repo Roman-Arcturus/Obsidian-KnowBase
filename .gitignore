@@ -1,0 +1,21 @@
+# ------------------------------
+# Obsidian Vault .gitignore File
+# ------------------------------
+
+# 1. Obsidian workspace state (local UI settings)
+# These files contain UI layout, open tabs, cursor positions, recent files, etc.
+# They change constantly and are NOT meaningful in version control.
+.obsidian/workspace
+.obsidian/workspace.json
+
+# 2. Obsidian app cache and transient files
+# Automatically generated files that vary per device.
+.obsidian/cache/
+.obsidian/plugins/obsidian-hover-editor/data.json
+
+# 3. Obsidian global app settings (optional)
+# If you want plug-in configuration synced across devices, REMOVE these lines.
+# If you prefer device-local customization, keep them ignored.
+.obsidian/plugins/
+.obsidian/themes/
+.obsidian/
