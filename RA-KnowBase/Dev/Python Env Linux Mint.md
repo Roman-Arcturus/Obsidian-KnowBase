@@ -57,7 +57,6 @@ pyenv is the cornerstone of a stable Python workflow.
 
 ### Installation:
 `curl https://pyenv.run | bash`
-
 ### Add pyenv initialization to your shell:
 
 Append to `~/.bashrc` (or `~/.zshrc` if using zsh):
@@ -106,7 +105,8 @@ You have two clean options.
 ## Option A — Classic venv (simple, minimal, explicit)
 
 For each project:
-`python -m venv .venv source .venv/bin/activate pip install <dependencies>`
+`python -m venv .venv source .venv/bin/activate 
+`pip install <dependencies>`
 
 Pros: Predictable, simple.  
 Cons: Manual dependency management.
@@ -146,7 +146,6 @@ Configure `.vscode/settings.json`:
 It auto-detects virtualenvs and pyenv versions.
 
 ---
-
 # 8. Recommended Mint Desktop Tools for Python Work
 
 Install via apt or flatpak:
@@ -158,7 +157,6 @@ Install via apt or flatpak:
 Docker is only needed when you start experimenting with deployment.
 
 ---
-
 # 9. Project Structure Template (Beginner-Friendly but Professional)
 
 You can copy this for every new project:

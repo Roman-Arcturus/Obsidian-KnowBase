@@ -111,7 +111,9 @@ This prevents divergence and reduces the risk of conflicts.
 ### See what is conflicting:
 `git status`
 ### After resolving the conflicts manually in the files:
-`git add . git commit git push`
+`git add . 
+`git commit 
+`git push`
 
 ---
 
