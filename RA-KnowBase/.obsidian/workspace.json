@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Dev/Mint > ssh key, git, Obsidian.md",
+                "file": "Dev/Mint  ssh key, git, Obsidian.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Mint > ssh key, git, Obsidian"
+              "title": "Mint  ssh key, git, Obsidian"
             }
           },
           {
@@ -214,8 +214,9 @@
   },
   "active": "ea210e463eac5a74",
   "lastOpenFiles": [
+    "Dev/Obsidian Workflow.md",
+    "Dev/Mint  ssh key, git, Obsidian.md",
     "Dev/Linux Mint config.md",
-    "Dev/Mint > ssh key, git, Obsidian.md",
     "Python/cheatsheet - Project fresh start.md",
     "Python/- Roadmap.md",
     "AI/Good bye.md",
@@ -224,7 +225,6 @@
     "Dev/Python Env Linux Mint.md",
     "Dev/Windows config.md",
     "Dev/Dev Toolchain.md",
-    "Dev/Obsidian Workflow.md",
     "Dev/Git Daily Workflow.md",
     "Python/Functions.md",
     "Python",
