@@ -4,14 +4,9 @@ Before the detailed steps, you should internalize these architectural rules. The
 
 1. **Never use system Python for development.**  
     It belongs to the OS. You install your own version(s).
-    
-2. **Use pyenv to install and switch Python versions.**
-    
-3. **Use pipx for global CLI tools** (black, ruff, poetry, etc.).
-    
-4. **Use virtualenvs for individual projects**, preferably auto-created by your editor or Poetry.
-    
-5. **Always isolate:**
+2. **Use pipx for global CLI tools** (black, ruff, poetry, etc.).
+3. **Use virtualenvs for individual projects**, preferably auto-created by your editor or Poetry.
+4. **Always isolate:**
     - System-level software via apt
     - Language tooling via pyenv/pipx
     - Project dependencies via venvs
@@ -19,85 +14,110 @@ Before the detailed steps, you should internalize these architectural rules. The
 This is the “clean architecture” of Python on Linux/Mac.
 
 ---
-# 2. Prepare Linux Mint for Python Development
+# Python Development Essentials on Linux Mint
 
-This section ensures the underlying system has everything Python needs.
-### Step 2.1 — Update the system
+(A clean, modern reinstall using best practices)
+## 1. Update and prepare the system
 
-`sudo apt update && sudo apt upgrade -y`
+sudo apt update && sudo apt full-upgrade -y
+sudo apt autoremove -y
+
+Deep explanation:  
+Updating guarantees that package metadata aligns with repository versions. Full-upgrade handles dependency changes cleanly, reducing future conflicts (especially relevant when using Python venvs). Autoremove removes outdated dependencies that can otherwise break builds or clutter compilers.
+## 2. Install core Python build dependencies (the modern list)
+
+These packages are required to build wheels, compile C-extensions, leverage modern packaging tools, and integrate with common scientific libraries.
+
+sudo apt install -y \
+    python3 \
+    python3-pip \
+    python3-venv \
+    python3-dev \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    libsqlite3-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libncursesw5-dev \
+    liblzma-dev
+
+Explanation of relevance:
+- `python3-venv`, `python3-dev` ensure full venv and extension support.
+- `build-essential` gives GCC, g++, make — mandatory for any C-compiled wheel.
+- The compression, crypto, and database libs ensure Python packages like pandas, cryptography, sqlite-backed libs, and Jupyter can compile correctly.
+
+## 3. Install pipx (officially recommended for global CLI tools)
+
+Pipx isolates global Python tools from your projects and prevents dependency contamination.
+
+sudo apt install -y pipx
+
+Why pipx matters:  
+Instead of installing global Python tools into system Python (bad practice), pipx creates isolated environments—this avoids version conflicts and protects your system packages.
+
+### 3.1 Ensure pipx initialized correctly
+pipx ensurepath
+
+### 3.2 Add pipx paths to your shell profile (permanent)
+For **Zch**, add this to your ~/.zchrc
+For **bash**, add this to your `~/.bashrc`
+to edit this file:
+nano ~/.bashrc
+or 
+nano  ~/.zchrc
+
+Add these lines at the end:
+```
+# Pipx environment
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+Apply immediately:
+source ~/.bashrc
+or
+source ~/.zchrc
+
+Deep explanation:  
+Linux Mint places user-level binaries in `~/.local/bin`.  
+Pipx installs its isolated environments inside `~/.local/pipx`, but exposes CLI executables through `~/.local/bin`.  
+If this directory is not in PATH, tools appear “not installed” even though they are present.
 
 ---
-### Step 2.2 — Install essential build tools
+### 4. Install core Python tooling (pro recommended global tools)
+Use pipx for any developer-facing CLI utilities.
 
-Python versions must compile locally when installed via pyenv.
+```
+pipx install poetry --force
+pipx install ruff --force
+pipx install black --force
+pipx install pre-commit --force
+```
+Notes:
+- `poetry` → modern dependency and project management (superior to pip alone for real projects). 
+- `ruff` + `black` → modern standard for linting/formatting.
+- `pre-commit` → pipeline for automated code-quality checks.
 
-`sudo apt install -y \     
-`build-essential \     
-`curl \     
-`git \     
-`libssl-dev \     
-`zlib1g-dev \     
-`libbz2-dev \     
-`libreadline-dev \     
-`libsqlite3-dev \     
-`llvm \     
-`libncurses5-dev \     
-`libncursesw5-dev \     
-`tk-dev \     
-`libffi-dev \     
-`liblzma-dev \     
-`python3-pip`
+This is the standard modern toolchain.
 
-This ensures pyenv can build any Python version cleanly.
-
----
-# 3. Install pyenv (Your Python Version Manager)
-
-pyenv is the cornerstone of a stable Python workflow.
-
-### Installation:
-`curl https://pyenv.run | bash`
-### Add pyenv initialization to your shell:
-
-Append to `~/.bashrc` (or `~/.zshrc` if using zsh):
-`export PATH="$HOME/.pyenv/bin:$PATH" eval "$(pyenv init -)" eval "$(pyenv virtualenv-init -)"`
-
-Reload shell:
-`source ~/.bashrc`
-### Verify:
-`pyenv --version`
-
----
-# 4. Install Modern Python Versions
-
-Use pyenv:
-`pyenv install 3.12.2 pyenv install 3.11.9`
-
-Set a global default (safe for general use):
-`pyenv global 3.12.2`
-
-Confirm:
-`python --version`
+Validate pipx-managed tools:
+pipx list
 
 ---
 
-# 5. Install pipx (Isolated Tool Installer)
+proceed to set up Git globally -->
 
-pipx isolates global developer tools without contaminating your Python environments.
-### Install:
-`sudo apt install pipx pipx ensurepath`
 
-### Install common Python CLI tools globally:
 
-`pipx install black 
-`pipx install ruff 
-`pipx install poetry 
-`pipx install httpie 
-`pipx install pipenv`
 
-These remain independent from project environments.
 
-----
+
+
+
+
+# ------------- OLD : DELETE ------------
+
 # 6. Choose a Project Environment Workflow
 
 You have two clean options.

@@ -147,18 +147,13 @@ ssh -T git@github.com
 Expected:
 Hi < your-username >! You've successfully authenticated...
 
-
-
 This means:
-
     SSH agent is running
-
     Your key is auto-loaded
-
     GitHub recognizes the key
-
     Everything is functioning exactly as expected
 
+---
 
 
 
