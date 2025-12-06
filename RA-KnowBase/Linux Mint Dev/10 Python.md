@@ -28,6 +28,7 @@ Updating guarantees that package metadata aligns with repository versions. Full-
 
 These packages are required to build wheels, compile C-extensions, leverage modern packaging tools, and integrate with common scientific libraries.
 
+```
 sudo apt install -y \
     python3 \
     python3-pip \
@@ -42,6 +43,7 @@ sudo apt install -y \
     libreadline-dev \
     libncursesw5-dev \
     liblzma-dev
+```
 
 Explanation of relevance:
 - `python3-venv`, `python3-dev` ensure full venv and extension support.

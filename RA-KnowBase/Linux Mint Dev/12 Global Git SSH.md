@@ -25,8 +25,10 @@ These tools are required for downloading and installing `.deb` software packages
 You downloaded the Obsidian `.deb` package manually from the official website, ensuring you received the correct version (Obsidian does not provide a stable “latest .deb” URL).
 
 You installed it with:
+```
 sudo dpkg -i obsidian_< version >_ amd64.deb
 sudo apt -f install -y
+```
 
 Rationale:
 - `dpkg` installs local `.deb`    
@@ -42,14 +44,22 @@ obsidian &
 To enable secure, password-less Git operations:
 
 ### 6.1 Check for existing SSH keys
+```
 ls -la ~/.ssh
+```
 ### 6.2 Generate a modern SSH key
+```
 ssh-keygen -t ed25519 -C "your_email@example.com"
+```
 ### 6.3 Start the SSH agent and load your key
+```
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
+```
 ### 6.4 **Add the SSH public key to GitHub (mandatory step)**
+```
 cat ~/.ssh/id_ed25519.pub
+```
 
 Copy the entire output line.
 Then go to:
@@ -67,8 +77,10 @@ Hi < your-username >! You've successfully authenticated...
 ## 7. Cloned Your Obsidian Vault via SSH
 
 You created a clean directory for vaults:
+```
 mkdir -p ~/obsidian
 cd ~/obsidian
+```
 
 Then cloned your vault:
 git clone git@github.com:< your-username >/< your-vault-repo >.git
